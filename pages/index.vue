@@ -1,5 +1,7 @@
 <template>
-  <Tutorial />
+  <div class="page__wrapper">
+    <pageHeader /> 
+  </div>
 </template>
 
 <script>
