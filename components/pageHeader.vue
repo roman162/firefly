@@ -7,15 +7,14 @@
       <img
         src="/images/logo.svg"
         alt="Logo"
-        class="page-header__logo-image">
-      />
-    </NuxtLink> 
+        class="page-header__logo-image"
+      >
+    </NuxtLink>
   </header>
 </template>
 
 <script>
 export default {
-  
 }
 </script>
 

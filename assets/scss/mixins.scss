@@ -34,3 +34,96 @@
     }
   }
 }
+
+@mixin tab{
+  @include body16-semi-bold;
+  padding: 20px 32px;
+  border-radius: 40px;
+  transition-property: background-color, border-color;
+  transition-duration: 1s;
+  border-width: 1px;
+  border-style: solid;
+}
+
+@mixin tab-active{
+  background-color: $black;
+  border-color: transparent;
+  color: #fff;
+
+  &:hover{
+    background-color: $gray-500;
+  }
+}
+
+@mixin tab-inactive{
+  color: $black;
+  border-color: transparent;
+  background-color: transparent;
+
+  &:hover{
+    border-color: $black;
+  }
+}
+
+@mixin h1{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.79px;
+}
+
+@mixin h2{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: -0.47px;
+}
+
+@mixin body16-semi-bold{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.18px;
+}
+
+@mixin body16-medium{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.18px;
+}
+
+@mixin body16-regular{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.18px;
+}
+
+@mixin caption12-semi-bold{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.01px;
+}
+
+@mixin body14-regular{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.09px;
+}
