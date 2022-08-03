@@ -20,6 +20,7 @@ export default {
     width: 100%;
     background-color: #fff;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.06);
+    z-index: 10;
   }
 
   .page-header__wrapper{

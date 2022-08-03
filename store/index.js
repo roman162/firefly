@@ -291,19 +291,29 @@ export const state = () => ({
     { title: 'waves', url: '', id: 10154, category: 1, type: 'stroke' },
     { title: 'wifi', url: '', id: 10162, category: 1, type: 'stroke' },
     { title: 'zip', url: '', id: 10091, category: 1, type: 'all' }
-  ]
+  ],
+  searchInput: null,
+  downloaded: []
 })
 
 export const getters = {
   GET_ACTIVE_CATEGORY: state => state.activeCategory,
-  GET_ICONS: state => state.icons,
+  GET_ICONS: state => state.searchInput && state.searchInput.length > 1 ? state.icons.filter(icon => icon.title.includes(state.searchInput)) : state.icons,
   GET_CATEGORIES: state => state.categories,
-  GET_ACTIVE_TYPE: state => state.activeType
+  GET_ACTIVE_TYPE: state => state.activeType,
+  GET_SEARCH_INPUT: state => state.searchInput,
+  GET_DOWNLOADED_ICONS: state => state.downloaded
 }
 
 export const mutations = {
   CHANGE_ACTIVE_TYPE (state) {
     state.activeType === 'stroke' ? state.activeType = 'fill' : state.activeType = 'stroke'
+  },
+  SET_SEARCH_INPUT (state, input) {
+    state.searchInput = input
+  },
+  SET_DOWNLOADED (state, id) {
+    state.downloaded.push(id)
   }
 }
 

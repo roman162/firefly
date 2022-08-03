@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="iconsList.length > 0"
     class="category__container"
   >
     <h3 class="category__title">
@@ -11,29 +12,19 @@
         v-for="(icon, index) of iconsList"
         :key="index"
       >
-        <a
-          class="icon__item"
-          :href="`/icons/${activeType}/${icon.title}.svg`"
-          download
-        >
-          <div class="icon__image-container">
-            <img
-              :src="`/icons/${activeType}/${icon.title}.svg`"
-              :alt="icon.title"
-              class="icon__image"
-            >
-          </div>
-          <p class="icon__title">
-            {{ icon.title }}
-          </p>
-        </a>
+        <icon-item
+          :icon="icon"
+          :activeType="activeType"
+        />
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import iconItem from './iconItem.vue'
 export default {
+  components: { iconItem },
   props: {
     category: {
       type: Object
@@ -54,53 +45,28 @@ export default {
 <style lang="scss" scoped>
   .category__title{
     text-transform: capitalize;
+    max-width: 1920px;
+    margin: 0 auto;
+    margin-bottom: 16px;
+    color: $black;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 44px;
   }
 
   .icons__list{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    max-width: 1920px;
+    margin: 0 auto;
     column-gap: 12px;
     row-gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
   }
 
   .icon__item-container{
-    max-width: 158px;
+    max-width: 198px;
+    min-width: 118px;
     width: 100%;
     height: 172px;
-    cursor: pointer;
-    border-radius: 24px;
-    background-color: #fff;
-
-    &:hover .icon__item{
-      top: -4px;
-      box-shadow: 0px 12px 36px rgba(0, 0, 0, 0.12), 0px 0px 2px rgba(0, 0, 0, 0.16);
-    }
-  }
-
-  .icon__item{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    top: 0;
-    padding: 22px 4px;
-    width: 100%;
-    height: 100%;
-    transition-property: top, box-shadow;
-    transition-duration: .2s;
-    box-shadow: none;
-    border-radius: 24px;
-  }
-
-  .icon__image-container{
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .icon__title{
-    text-align: center;
-    min-height: 38px;
   }
 </style>

@@ -52,4 +52,9 @@ export default {
   .icons__container{
     padding: 16px 32px;
   }
+
+  .category__container{
+    margin-top: 36px;
+    margin-bottom: 44px;
+  }
 </style>

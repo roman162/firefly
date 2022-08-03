@@ -7,7 +7,6 @@
       :class="searchInput ? 'search__input--active' : 'search__input'"
       placeholder="Search 400 icons"
       v-model="searchInput"
-      @blur="sortIcons"
     >
     <span
       class="icon__delete"
@@ -21,13 +20,23 @@
 export default {
   data () {
     return {
-      searchInput: ''
+      searchInput: '',
+      inputTimer: null
+    }
+  },
+  watch: {
+    searchInput () {
+      if (!this.inputTimer) {
+        this.inputTimer = setTimeout(() => {
+          this.$store.commit('SET_SEARCH_INPUT', this.searchInput)
+          this.inputTimer = null
+          console.log(this.searchInput)
+          console.log(this.$store.getters.GET_SEARCH_INPUT)
+        }, 200)
+      }
     }
   },
   methods: {
-    sortIcons () {
-      console.log(this.searchInput)
-    },
     deleteSearch () {
       console.log('delete')
       this.searchInput = ''
